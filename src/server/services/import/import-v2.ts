@@ -219,7 +219,7 @@ const updateOrCreate = async (
   { importStage, fileIdToDbId, componentsDataStore }: { importStage: ImportStage; fileIdToDbId: IdMapper; componentsDataStore: Partial<Record<SchemaUID, SlugEntries>> },
 ) => {
   const schema = getModel(slug);
-  const idField = idFieldArg || schema?.pluginOptions?.['import-export-entries']?.idField || 'id';
+  const idField = idFieldArg || schema?.pluginOptions?.['import-export-entries-js']?.idField || 'id';
 
   let fileEntry = cloneDeep(fileEntryArg);
 

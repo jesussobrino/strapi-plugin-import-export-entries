@@ -75,7 +75,7 @@ Strapi v4 is required.
   <img src="./doc/map.png" alt="Product roadmap" width="100"/>
 </p>
 
-Access the [publicly available product roadmap](https://strapi-import-export-entries.canny.io) and suggest features, report bugs or upvote other people suggestions.
+Access the [publicly available product roadmap](https://strapi-import-export-entries-js.canny.io) and suggest features, report bugs or upvote other people suggestions.
 
 <p align="center">
   <img src="./doc/discord-logo.png" alt="Discord community" width="100"/>
@@ -92,13 +92,13 @@ See the repo [Strapi Contribute](https://github.com/Baboo7/strapi-contribute#rea
 1. Download
 
 ```
-yarn add strapi-plugin-import-export-entries
+yarn add strapi-plugin-import-export-entries-js
 ```
 
 or
 
 ```
-npm i strapi-plugin-import-export-entries
+npm i strapi-plugin-import-export-entries-js
 ```
 
 2. Enable the plugin
@@ -108,7 +108,7 @@ Add in the file `config/plugins.js`:
 ```js
 module.exports = ({ env }) => ({
   //...
-  'import-export-entries': {
+  'import-export-entries-js': {
     enabled: true,
     config: {
       // See `Config` section.
@@ -150,7 +150,7 @@ You can also export the whole database from the home page of the plugin.
 
 You can define which roles can import and/or export data from the admin UI.
 
-Go to `Settings > Roles (under Administration Panel) > Plugins > Import-export-entries`.
+Go to `Settings > Roles (under Administration Panel) > Plugins > import-export-entries-js`.
 
 <p align="center">
   <img src="./doc/access-control-admin.png" alt="UI" width="500"/>
@@ -196,7 +196,7 @@ In `config/plugins.js`:
 ```ts
 module.exports = ({ env }) => ({
   //...
-  'import-export-entries': {
+  'import-export-entries-js': {
     enabled: true,
     config: {
       /**
@@ -221,7 +221,7 @@ In any collection schema `schema.json`:
     "displayName": "My Awesome Collection",
   },
   "pluginOptions": {
-    "import-export-entries": {
+    "import-export-entries-js": {
       /**
        * Define the `idField` used to find an entry of the collection
        * when importing data.
@@ -286,7 +286,7 @@ _Different databases, different `id`s._ 🫠
 
 That's why we need a way to define the field used to find an entry in a collection. This field is called an `idField`.
 
-To define the `idField` of a collection, add it in the `pluginOptions` of the collection, under the property `import-export-entries`. Using the example above, this is how we would define the `idField` of the collection `hospital`:
+To define the `idField` of a collection, add it in the `pluginOptions` of the collection, under the property `import-export-entries-js`. Using the example above, this is how we would define the `idField` of the collection `hospital`:
 
 ```ts
 {
@@ -296,12 +296,12 @@ To define the `idField` of a collection, add it in the `pluginOptions` of the co
   },
   "options": {},
   /**
-   * In the property `pluginOptions`, define the `idField` under the property `import-export-entries`.
+   * In the property `pluginOptions`, define the `idField` under the property `import-export-entries-js`.
    *
    * `idField` must match the name of an attribute.
    */
   "pluginOptions": {
-    "import-export-entries": {
+    "import-export-entries-js": {
       "idField": "name"
     }
   },
@@ -385,7 +385,7 @@ The exported data is filtered and sorted as expected.
 /**
  * Get the service.
  */
-const service = strapi.plugin("import-export-entries").service("import");
+const service = strapi.plugin("import-export-entries-js").service("import");
 
 /**
  * Method importData.
@@ -433,7 +433,7 @@ await service.importData(
 /**
  * Get the service.
  */
-const service = strapi.plugin("import-export-entries").service("export");
+const service = strapi.plugin("import-export-entries-js").service("export");
 
 /**
  * Method exportData.
@@ -472,7 +472,7 @@ Data can be imported/exported through the content api. Endpoints have to be enab
 /*****************************
  * Import data
  *
- * POST /api/import-export-entries/content/import
+ * POST /api/import-export-entries-js/content/import
  ****************************/
 
 type RouteParams = {
@@ -505,7 +505,7 @@ type RouteReturn = {
 /*****************************
  * Export data
  *
- * POST /api/import-export-entries/content/export/contentTypes
+ * POST /api/import-export-entries-js/content/export/contentTypes
  ****************************/
 
 type RouteParams = {
