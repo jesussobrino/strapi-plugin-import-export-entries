@@ -1,4 +1,7 @@
-# Strapi Plugin Import Export Entries
+# Strapi Plugin Import Export Entries JS
+
+## Disclaimer
+This repo is only a fork version with some bugs fixed. The original repo is: https://github.com/Baboo7/strapi-plugin-import-export-entries
 
 Import/Export data from and to your database in just few clicks.
 
